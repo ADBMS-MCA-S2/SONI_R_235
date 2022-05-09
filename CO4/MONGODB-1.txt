@@ -172,3 +172,14 @@ WriteResult({ "nInserted" : 1 })
 > db.stud1.find({degree:'bca',sem:'6'},{sname:1});
 { "_id" : ObjectId("6278b14eefe9de5c891c199c"), "sname" : "ancy" }
 > db.stud1.find(),;
+db.stud1.find({},{degree:1,_id:0});
+{ "degree" : "bsc" }
+{ "degree" : "bsc" }
+{ "degree" : "bca" }
+{ "degree" : "bca" }
+{ "degree" : "bca" }
+{ "degree" : "btech" }
+{ "degree" : "bca" }
+{ "degree" : "bsc" }
+{ "degree" : "bsc" }
+{ "degree" : "bca" }
