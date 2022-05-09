@@ -183,4 +183,86 @@ db.stud1.find({},{degree:1,_id:0});
 { "degree" : "bsc" }
 { "degree" : "bsc" }
 { "degree" : "bca" }
+db.stud1.find().pretty();
+{
+        "_id" : ObjectId("62789f90efe9de5c891c1993"),
+        "SRN" : "100",
+        "sname" : "jeff",
+        "degree" : "bsc",
+        "sem" : "1",
+        "cgpa" : "8.0"
+}
+{
+        "_id" : ObjectId("6278a012efe9de5c891c1994"),
+        "SRN" : "101",
+        "sname" : "jerr",
+        "degree" : "bsc",
+        "sem" : "1",
+        "cgpa" : "7.9"
+}
+{
+        "_id" : ObjectId("6278a2feefe9de5c891c1995"),
+        "SRN" : "102",
+        "sname" : "RAHUL",
+        "degree" : "bca",
+        "sem" : "1",
+        "cgpa" : "7.0"
+}
+{
+        "_id" : ObjectId("6278a330efe9de5c891c1996"),
+        "SRN" : "103",
+        "sname" : "catherine",
+        "degree" : "bca",
+        "sem" : "2",
+        "cgpa" : "6.9"
+}
+{
+        "_id" : ObjectId("6278a364efe9de5c891c1997"),
+        "SRN" : "104",
+        "sname" : "kevin",
+        "degree" : "bca",
+        "sem" : "3",
+        "cgpa" : "6.5"
+}
+{
+        "_id" : ObjectId("6278a3b1efe9de5c891c1998"),
+        "SRN" : "105",
+        "sname" : "jual",
+        "degree" : "btech",
+        "sem" : "4",
+        "cgpa" : "6.4"
+}
+{
+        "_id" : ObjectId("6278a3e6efe9de5c891c1999"),
+        "SRN" : "106",
+        "sname" : "jeni",
+        "degree" : "bca",
+        "sem" : "5",
+        "cgpa" : "6.7"
+}
+{
+        "_id" : ObjectId("6278a42fefe9de5c891c199a"),
+        "SRN" : "107",
+        "sname" : "miya",
+        "degree" : "bsc",
+        "sem" : "6",
+        "cgpa" : "7.6"
+}
+{
+        "_id" : ObjectId("6278a45defe9de5c891c199b"),
+        "SRN" : "108",
+        "sname" : "bincy",
+        "degree" : "bsc",
+        "sem" : "6",
+        "cgpa" : "6.2"
+}
+{
+        "_id" : ObjectId("6278b14eefe9de5c891c199c"),
+        "SRN" : "109",
+        "sname" : "ancy",
+        "degree" : "bca",
+        "sem" : "6",
+        "cgpa" : "6.5"
+}
+>
  db.stud1.find({and{degree:'bca'},{cgpa:{$gt:'6'},{cgpa:{$lt:'7.1'}}).pretty();
