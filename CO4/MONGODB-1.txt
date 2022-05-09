@@ -183,3 +183,4 @@ db.stud1.find({},{degree:1,_id:0});
 { "degree" : "bsc" }
 { "degree" : "bsc" }
 { "degree" : "bca" }
+ db.stud1.find({and{degree:'bca'},{cgpa:{$gt:'6'},{cgpa:{$lt:'7.1'}}).pretty();
