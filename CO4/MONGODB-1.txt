@@ -34,14 +34,10 @@ The server generated these startup warnings when booting:
 ---
 > use student
 switched to db student
-> db.createcollection('stud1');
-uncaught exception: TypeError: db.createcollection is not a function :
-@(shell):1:1
+
 > db.createCollection('stud1');
 { "ok" : 1 }
-> db.stud1.insert({SRN:'100',sname:'jeff',deg:ree:'bsc',sem:'1',cgpa:'8.0'});
-uncaught exception: SyntaxError: missing } after property list :
-@(shell):1:47
+
 > db.stud1.insert({SRN:'100',sname:'jeff',degree:'bsc',sem:'1',cgpa:'8.0'});
 WriteResult({ "nInserted" : 1 })
 > db.stud1.insert({SRN:'101',sname:'jerr',degree:'bsc',sem:'1',cgpa:'7.9'});
@@ -72,9 +68,7 @@ WriteResult({ "nInserted" : 1 })
 { "_id" : ObjectId("6278a3e6efe9de5c891c1999"), "SRN" : "106", "sname" : "jeni", "degree" : "bca", "sem" : "5", "cgpa" : "6.7" }
 { "_id" : ObjectId("6278a42fefe9de5c891c199a"), "SRN" : "107", "sname" : "miya", "degree" : "bsc", "sem" : "6", "cgpa" : "7.6" }
 { "_id" : ObjectId("6278a45defe9de5c891c199b"), "SRN" : "108", "sname" : "bincy", "degree" : "bsc", "sem" : "6", "cgpa" : "6.2" }
-> db.stud1.find()pretty();
-uncaught exception: SyntaxError: unexpected token: identifier :
-@(shell):1:15
+
 > db.stud1.find({degree:'bca'});
 { "_id" : ObjectId("6278a2feefe9de5c891c1995"), "SRN" : "102", "sname" : "RAHUL", "degree" : "bca", "sem" : "1", "cgpa" : "7.0" }
 { "_id" : ObjectId("6278a330efe9de5c891c1996"), "SRN" : "103", "sname" : "catherine", "degree" : "bca", "sem" : "2", "cgpa" : "6.9" }
@@ -109,15 +103,7 @@ uncaught exception: SyntaxError: missing ) after argument list :
 { "_id" : ObjectId("6278a3e6efe9de5c891c1999"), "SRN" : "106", "sname" : "jeni", "degree" : "bca", "sem" : "5", "cgpa" : "6.7" }
 { "_id" : ObjectId("6278a42fefe9de5c891c199a"), "SRN" : "107", "sname" : "miya", "degree" : "bsc", "sem" : "6", "cgpa" : "7.6" }
 { "_id" : ObjectId("6278a45defe9de5c891c199b"), "SRN" : "108", "sname" : "bincy", "degree" : "bsc", "sem" : "6", "cgpa" : "6.2" }
-> db.stud1.find().sort({cgpa:-1}.skip(4).limit(3);
-...
-... db.stud1.find().sort({cgpa:-1}).skip(4).limit(3);
-...
-...
->
->
->
->
+
 > db.stud1.find().skip(4).limit(3);
 { "_id" : ObjectId("6278a364efe9de5c891c1997"), "SRN" : "104", "sname" : "kevin", "degree" : "bca", "sem" : "3", "cgpa" : "6.5" }
 { "_id" : ObjectId("6278a3b1efe9de5c891c1998"), "SRN" : "105", "sname" : "jual", "degree" : "btech", "sem" : "4", "cgpa" : "6.4" }
@@ -140,13 +126,7 @@ DBCollection.prototype.count@src/mongo/shell/collection.js:1406:15
 { "_id" : ObjectId("6278a364efe9de5c891c1997"), "SRN" : "104", "sname" : "kevin", "degree" : "bca", "sem" : "3", "cgpa" : "6.5" }
 > db.stud1.find({degree:'bca'}).count();
 4
-> db.stud1.distinct();
-uncaught exception: Error: The first argument to the distinct command must be a string but was a undefined :
-DBCollection.prototype.distinct@src/mongo/shell/collection.js:1509:15
-@(shell):1:1
-> db.stud1.distinct(sname);
-uncaught exception: ReferenceError: sname is not defined :
-@(shell):1:1
+
 > db.stud1.distinct("sname");
 [
         "RAHUL",
@@ -265,4 +245,11 @@ db.stud1.find().pretty();
         "cgpa" : "6.5"
 }
 >
- db.stud1.find({and{degree:'bca'},{cgpa:{$gt:'6'},{cgpa:{$lt:'7.1'}}).pretty();
+ 
+db.stud1.find({$and:[{degree:"bca"},{cgpa:{$gt:"6"}},{cgpa:{$lt:"7.1"}}]})
+{ "_id" : ObjectId("6278a2feefe9de5c891c1995"), "SRN" : "102", "sname" : "RAHUL", "degree" : "bca", "sem" : "1", "cgpa" : "7.0" }
+{ "_id" : ObjectId("6278a330efe9de5c891c1996"), "SRN" : "103", "sname" : "catherine", "degree" : "bca", "sem" : "2", "cgpa" : "6.9" }
+{ "_id" : ObjectId("6278a364efe9de5c891c1997"), "SRN" : "104", "sname" : "kevin", "degree" : "bca", "sem" : "3", "cgpa" : "6.5" }
+{ "_id" : ObjectId("6278a3e6efe9de5c891c1999"), "SRN" : "106", "sname" : "jeni", "degree" : "bca", "sem" : "5", "cgpa" : "6.7" }
+{ "_id" : ObjectId("6278b14eefe9de5c891c199c"), "SRN" : "109", "sname" : "ancy", "degree" : "bca", "sem" : "6", "cgpa" : "6.5" }
+>
