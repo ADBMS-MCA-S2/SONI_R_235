@@ -216,3 +216,8 @@ WriteResult({ "nRemoved" : 1 })
                 "city" : "Kollam"
         }
 }
+db.emp_details.find({},{empname:1}).pretty()
+{ "_id" : ObjectId("628b4f63cbe758093c4d4c41"), "empname" : "jefri" }
+{ "_id" : ObjectId("628b4f8fcbe758093c4d4c42"), "empname" : "jeri" }
+{ "_id" : ObjectId("628b4fa6cbe758093c4d4c43"), "empname" : "Saliha" }
+>
