@@ -232,3 +232,4 @@ db.emp_details.find({},{empname:1}).pretty()
 { "_id" : ObjectId("628b4f8fcbe758093c4d4c42"), "empname" : "jeri" }
 { "_id" : ObjectId("628b4fa6cbe758093c4d4c43"), "empname" : "Saliha" }
 >
+db.details.aggregate([{$match:{'age':{$gt:25}}},{$group:{_id:"$gender",'total amount':{$avg:'$amount'}},{$sort:{avg:1}}}])
