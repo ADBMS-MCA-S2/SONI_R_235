@@ -32,6 +32,17 @@ WriteResult({ "nInserted" : 1 })
         "empname" : "jeri",
         "dept" : "ui dept",
         "desn" : "ui designer",
+        db.details.find({$or:[{gender:"male"},{age:{$lt:25}}]});
+{ "_id" : ObjectId("628b5f3acbe758093c4d4c45"), "name" : "jeri", "age" : 20, "gender" : "male", "amount" : 45000 }
+{ "_id" : ObjectId("628b5f51cbe758093c4d4c46"), "name" : "jefri", "age" : 22, "gender" : "male", "amount" : 55000 }
+{ "_id" : ObjectId("628b5f9bcbe758093c4d4c47"), "name" : "cath", "age" : 23, "gender" : "female", "amount" : 60000 }
+{ "_id" : ObjectId("628b5fddcbe758093c4d4c49"), "name" : "leon", "age" : 25, "gender" : "male", "amount" : 35000 }
+{ "_id" : ObjectId("628b6021cbe758093c4d4c4b"), "name" : "tom", "age" : 26, "gender" : "male", "amount" : 40000 }
+{ "_id" : ObjectId("628b605dcbe758093c4d4c4d"), "name" : "derin", "age" : 29, "gender" : "male", "amount" : 70000 }
+>
+db.details.aggregate([{$group:{_id:"$gender",'total amount':{$sum:'$amount'}}}])
+{ "_id" : "male", "total amount" : 245000 }
+{ "_id" : "female", "total amount" : 165000 }
         "sal" : 24000,
         "yoj" : 2014,
         "addr" : {
