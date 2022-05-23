@@ -1,0 +1,92 @@
+use Employee
+switched to db Employee
+> db.createCollection('emp_details');
+{ "ok" : 1 }
+> db.emp_details.insert({empid:102,empname:"jefri",dept:"backend",desn:"developer",sal:20000,yoj:2011,addr:{dno:100,street:"pinestreet",loc:"Beetown",city:"Crocity"}});
+WriteResult({ "nInserted" : 1 })
+>  db.emp_details.insert({empid:106,empname:"jeri",dept:"ui dept",desn:"ui designer",sal:24000,yoj:2014,addr:{dno:103,street:"marketroad",loc:"kadappakada",city:"Kollam"}});
+WriteResult({ "nInserted" : 1 })
+> db.emp_details.insert({empid:104,empname:"Saliha",dept:"frotend",desn:"developer",sal:21200,yoj:2014,addr:{dno:108,street:"divestreet",loc:"Parippally",city:"Kollam"}});
+WriteResult({ "nInserted" : 1 })
+> db.emp_details.insert({empid:105,empname:"remya",dept:"backend",desn:"tester",sal:24000,yoj:2009,addr:{dno:100,street:"barkroad",loc:"Marad",city:"Kochi"}});
+WriteResult({ "nInserted" : 1 })
+ db.emp_details.find().pretty();
+{
+        "_id" : ObjectId("628b4f63cbe758093c4d4c41"),
+        "empid" : 102,
+        "empname" : "jefri",
+        "dept" : "backend",
+        "desn" : "developer",
+        "sal" : 20000,
+        "yoj" : 2011,
+        "addr" : {
+                "dno" : 100,
+                "street" : "pinestreet",
+                "loc" : "Beetown",
+                "city" : "Crocity"
+        }
+}
+{
+        "_id" : ObjectId("628b4f8fcbe758093c4d4c42"),
+        "empid" : 106,
+        "empname" : "jeri",
+        "dept" : "ui dept",
+        "desn" : "ui designer",
+        "sal" : 24000,
+        "yoj" : 2014,
+        "addr" : {
+                "dno" : 103,
+                "street" : "marketroad",
+                "loc" : "kadappakada",
+                "city" : "Kollam"
+        }
+}
+{
+        "_id" : ObjectId("628b4fa6cbe758093c4d4c43"),
+        "empid" : 104,
+        "empname" : "Saliha",
+        "dept" : "frotend",
+        "desn" : "developer",
+        "sal" : 21200,
+        "yoj" : 2014,
+        "addr" : {
+                "dno" : 108,
+                "street" : "divestreet",
+                "loc" : "Parippally",
+                "city" : "Kollam"
+        }
+}
+{
+        "_id" : ObjectId("628b4fbbcbe758093c4d4c44"),
+        "empid" : 105,
+        "empname" : "remya",
+        "dept" : "backend",
+        "desn" : "tester",
+        "sal" : 24000,
+        "yoj" : 2009,
+        "addr" : {
+                "dno" : 100,
+                "street" : "barkroad",
+                "loc" : "Marad",
+                "city" : "Kochi"
+        }
+}
+db.emp_details.updateMany({},{$set:{project:1}})
+{ "acknowledged" : true, "matchedCount" : 4, "modifiedCount" : 4 }
+db.emp_details.find({empname:{$regex:"my"}}).pretty()
+{
+        "_id" : ObjectId("628b4fbbcbe758093c4d4c44"),
+        "empid" : 105,
+        "empname" : "remya",
+        "dept" : "backend",
+        "desn" : "tester",
+        "sal" : 24000,
+        "yoj" : 2009,
+        "addr" : {
+                "dno" : 100,
+                "street" : "barkroad",
+                "loc" : "Marad",
+                "city" : "Kochi"
+        },
+        "project" : 1
+}
