@@ -90,3 +90,8 @@ db.emp_details.find({empname:{$regex:"my"}}).pretty()
         },
         "project" : 1
 }
+db.emp_details.find({empname:{$regex:"^r"}},{empname:1}).pretty()
+{ "_id" : ObjectId("628b4fbbcbe758093c4d4c44"), "empname" : "remya" }
+> db.emp_details.find({empname:{$regex:"a$"}},{empname:1}).pretty()
+{ "_id" : ObjectId("628b4fa6cbe758093c4d4c43"), "empname" : "Saliha" }
+{ "_id" : ObjectId("628b4fbbcbe758093c4d4c44"), "empname" : "remya" }
