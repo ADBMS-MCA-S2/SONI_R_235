@@ -1,0 +1,259 @@
+C:\Program Files\MongoDB\Server\5.0\bin>mongo
+MongoDB shell version v5.0.7
+connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("14e34028-7c42-408f-84f8-de7e19a8bb41") }
+MongoDB server version: 5.0.7
+================
+Warning: the "mongo" shell has been superseded by "mongosh",
+which delivers improved usability and compatibility.The "mongo" shell has been deprecated and will be removed in
+an upcoming release.
+For installation instructions, see
+https://docs.mongodb.com/mongodb-shell/install/
+================
+---
+The server generated these startup warnings when booting:
+        2022-05-25T13:16:24.983+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+---
+---
+        Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+        metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+        The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+        and anyone you share the URL with. MongoDB may use this information to make product
+        improvements and to suggest MongoDB products and deployment options to you.
+
+        To enable free monitoring, run the following command: db.enableFreeMonitoring()
+        To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+---
+> use college
+switched to db college
+> db.createCollection('studlist');
+{ "ok" : 1 }
+> db.studlist.insert('fname':'jeff','lname':'justin','depart':'mca','grade':'A+','gender':'male','contact':'9875467','mark':'90','location':'kollam');
+uncaught exception: SyntaxError: missing ) after argument list :
+@(shell):1:26
+> db.studlist.insert({'fname':'jeff','lname':'justin','depart':'mca','grade':'A+','gender':'male','contact':'9875467','mark':'90','location':'kollam'});
+WriteResult({ "nInserted" : 1 })
+> db.studlist.insert({'fname':'jeff','vismaya':'sebastian','depart':'mechanical','grade':'A','gender':'female','contact':'98756897','mark':'81','location':'kottayam'});
+WriteResult({ "nInserted" : 1 })
+> db.studlist.insert({'fname':'vismaya','lname':'sebastian','depart':'mechanical','grade':'A','gender':'female','contact':'9875467','mark':'90','location':'kottayam'});
+WriteResult({ "nInserted" : 1 })
+> db.studlist.insert({'fname':'jeri','lname':'J','depart':'electrical','grade':'B','gender':'male','contact':'99775467','mark':'95','location':'trivandrum'});
+WriteResult({ "nInserted" : 1 })
+> db.studlist.insert({'fname':'tessy','lname':'A','depart':'mechanical','grade':'A+','gender':'female','contact':'99778967','mark':'83','location':'kollam'});
+WriteResult({ "nInserted" : 1 })
+> db.studlist.insert({'fname':'tom','lname':'A','depart':'civil','grade':'B+','gender':'male','contact':'997778967','mark':'97','location':'ekm'});
+WriteResult({ "nInserted" : 1 })
+> db.studlist.find().pretty();
+{
+        "_id" : ObjectId("628de57961c93496ce1adfa0"),
+        "fname" : "jeff",
+        "lname" : "justin",
+        "depart" : "mca",
+        "grade" : "A+",
+        "gender" : "male",
+        "contact" : "9875467",
+        "mark" : "90",
+        "location" : "kollam"
+}
+{
+        "_id" : ObjectId("628de70761c93496ce1adfa2"),
+        "fname" : "vismaya",
+        "lname" : "sebastian",
+        "depart" : "mechanical",
+        "grade" : "A",
+        "gender" : "female",
+        "contact" : "9875467",
+        "mark" : "90",
+        "location" : "kottayam"
+}
+{
+        "_id" : ObjectId("628de77761c93496ce1adfa3"),
+        "fname" : "jeri",
+        "lname" : "J",
+        "depart" : "electrical",
+        "grade" : "B",
+        "gender" : "male",
+        "contact" : "99775467",
+        "mark" : "95",
+        "location" : "trivandrum"
+}
+{
+        "_id" : ObjectId("628de7bb61c93496ce1adfa4"),
+        "fname" : "tessy",
+        "lname" : "A",
+        "depart" : "mechanical",
+        "grade" : "A+",
+        "gender" : "female",
+        "contact" : "99778967",
+        "mark" : "83",
+        "location" : "kollam"
+}
+{
+        "_id" : ObjectId("628de83f61c93496ce1adfa5"),
+        "fname" : "tom",
+        "lname" : "A",
+        "depart" : "civil",
+        "grade" : "B+",
+        "gender" : "male",
+        "contact" : "997778967",
+        "mark" : "97",
+        "location" : "ekm"
+}
+> db.studlist.insert({'fname':'kevin','lname':'m','depart':'mca','grade':'B+','gender':'male','contact':'99878967','mark':'87','location':'ekm'});
+WriteResult({ "nInserted" : 1 })
+> db.studlist.find().pretty();
+{
+        "_id" : ObjectId("628de57961c93496ce1adfa0"),
+        "fname" : "jeff",
+        "lname" : "justin",
+        "depart" : "mca",
+        "grade" : "A+",
+        "gender" : "male",
+        "contact" : "9875467",
+        "mark" : "90",
+        "location" : "kollam"
+}
+{
+        "_id" : ObjectId("628de70761c93496ce1adfa2"),
+        "fname" : "vismaya",
+        "lname" : "sebastian",
+        "depart" : "mechanical",
+        "grade" : "A",
+        "gender" : "female",
+        "contact" : "9875467",
+        "mark" : "90",
+        "location" : "kottayam"
+}
+{
+        "_id" : ObjectId("628de77761c93496ce1adfa3"),
+        "fname" : "jeri",
+        "lname" : "J",
+        "depart" : "electrical",
+        "grade" : "B",
+        "gender" : "male",
+        "contact" : "99775467",
+        "mark" : "95",
+        "location" : "trivandrum"
+}
+{
+        "_id" : ObjectId("628de7bb61c93496ce1adfa4"),
+        "fname" : "tessy",
+        "lname" : "A",
+        "depart" : "mechanical",
+        "grade" : "A+",
+        "gender" : "female",
+        "contact" : "99778967",
+        "mark" : "83",
+        "location" : "kollam"
+}
+{
+        "_id" : ObjectId("628de83f61c93496ce1adfa5"),
+        "fname" : "tom",
+        "lname" : "A",
+        "depart" : "civil",
+        "grade" : "B+",
+        "gender" : "male",
+        "contact" : "997778967",
+        "mark" : "97",
+        "location" : "ekm"
+}
+{
+        "_id" : ObjectId("628de8c861c93496ce1adfa6"),
+        "fname" : "kevin",
+        "lname" : "m",
+        "depart" : "mca",
+        "grade" : "B+",
+        "gender" : "male",
+        "contact" : "99878967",
+        "mark" : "87",
+        "location" : "ekm"
+}
+> db.studlist.insert({'fname':'catherine','lname':'m','depart':'mca','grade':'B+','gender':'female','contact':'99878967','mark':'84','location':'ekm'});
+WriteResult({ "nInserted" : 1 })
+> db.studlist.find({'depart':'mca','gender':'female});
+uncaught exception: SyntaxError: '' literal not terminated before end of script :
+@(shell):1:52
+> db.studlist.find({'depart':'mca','gender':'female'});
+{ "_id" : ObjectId("628de96861c93496ce1adfa7"), "fname" : "catherine", "lname" : "m", "depart" : "mca", "grade" : "B+", "gender" : "female", "contact" : "99878967", "mark" : "84", "location" : "ekm" }
+> db.studlist.find().pretty();
+{
+        "_id" : ObjectId("628de57961c93496ce1adfa0"),
+        "fname" : "jeff",
+        "lname" : "justin",
+        "depart" : "mca",
+        "grade" : "A+",
+        "gender" : "male",
+        "contact" : "9875467",
+        "mark" : "90",
+        "location" : "kollam"
+}
+{
+        "_id" : ObjectId("628de70761c93496ce1adfa2"),
+        "fname" : "vismaya",
+        "lname" : "sebastian",
+        "depart" : "mechanical",
+        "grade" : "A",
+        "gender" : "female",
+        "contact" : "9875467",
+        "mark" : "90",
+        "location" : "kottayam"
+}
+{
+        "_id" : ObjectId("628de77761c93496ce1adfa3"),
+        "fname" : "jeri",
+        "lname" : "J",
+        "depart" : "electrical",
+        "grade" : "B",
+        "gender" : "male",
+        "contact" : "99775467",
+        "mark" : "95",
+        "location" : "trivandrum"
+}
+{
+        "_id" : ObjectId("628de7bb61c93496ce1adfa4"),
+        "fname" : "tessy",
+        "lname" : "A",
+        "depart" : "mechanical",
+        "grade" : "A+",
+        "gender" : "female",
+        "contact" : "99778967",
+        "mark" : "83",
+        "location" : "kollam"
+}
+{
+        "_id" : ObjectId("628de83f61c93496ce1adfa5"),
+        "fname" : "tom",
+        "lname" : "A",
+        "depart" : "civil",
+        "grade" : "B+",
+        "gender" : "male",
+        "contact" : "997778967",
+        "mark" : "97",
+        "location" : "ekm"
+}
+{
+        "_id" : ObjectId("628de8c861c93496ce1adfa6"),
+        "fname" : "kevin",
+        "lname" : "m",
+        "depart" : "mca",
+        "grade" : "B+",
+        "gender" : "male",
+        "contact" : "99878967",
+        "mark" : "87",
+        "location" : "ekm"
+}
+{
+        "_id" : ObjectId("628de96861c93496ce1adfa7"),
+        "fname" : "catherine",
+        "lname" : "m",
+        "depart" : "mca",
+        "grade" : "B+",
+        "gender" : "female",
+        "contact" : "99878967",
+        "mark" : "84",
+        "location" : "ekm"
+}
+> db.studlist.find({'depart':'mca','gender':'female'},{'fname':1,'lname':1,'mark':1});
+{ "_id" : ObjectId("628de96861c93496ce1adfa7"), "fname" : "catherine", "lname" : "m", "mark" : "84" }
+>
