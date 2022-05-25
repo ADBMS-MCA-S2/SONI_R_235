@@ -45,129 +45,8 @@ WriteResult({ "nInserted" : 1 })
 > db.studlist.insert({'fname':'tom','lname':'A','depart':'civil','grade':'B+','gender':'male','contact':'997778967','mark':'97','location':'ekm'});
 WriteResult({ "nInserted" : 1 })
 > db.studlist.find().pretty();
-{
-        "_id" : ObjectId("628de57961c93496ce1adfa0"),
-        "fname" : "jeff",
-        "lname" : "justin",
-        "depart" : "mca",
-        "grade" : "A+",
-        "gender" : "male",
-        "contact" : "9875467",
-        "mark" : "90",
-        "location" : "kollam"
-}
-{
-        "_id" : ObjectId("628de70761c93496ce1adfa2"),
-        "fname" : "vismaya",
-        "lname" : "sebastian",
-        "depart" : "mechanical",
-        "grade" : "A",
-        "gender" : "female",
-        "contact" : "9875467",
-        "mark" : "90",
-        "location" : "kottayam"
-}
-{
-        "_id" : ObjectId("628de77761c93496ce1adfa3"),
-        "fname" : "jeri",
-        "lname" : "J",
-        "depart" : "electrical",
-        "grade" : "B",
-        "gender" : "male",
-        "contact" : "99775467",
-        "mark" : "95",
-        "location" : "trivandrum"
-}
-{
-        "_id" : ObjectId("628de7bb61c93496ce1adfa4"),
-        "fname" : "tessy",
-        "lname" : "A",
-        "depart" : "mechanical",
-        "grade" : "A+",
-        "gender" : "female",
-        "contact" : "99778967",
-        "mark" : "83",
-        "location" : "kollam"
-}
-{
-        "_id" : ObjectId("628de83f61c93496ce1adfa5"),
-        "fname" : "tom",
-        "lname" : "A",
-        "depart" : "civil",
-        "grade" : "B+",
-        "gender" : "male",
-        "contact" : "997778967",
-        "mark" : "97",
-        "location" : "ekm"
-}
-> db.studlist.insert({'fname':'kevin','lname':'m','depart':'mca','grade':'B+','gender':'male','contact':'99878967','mark':'87','location':'ekm'});
-WriteResult({ "nInserted" : 1 })
-> db.studlist.find().pretty();
-{
-        "_id" : ObjectId("628de57961c93496ce1adfa0"),
-        "fname" : "jeff",
-        "lname" : "justin",
-        "depart" : "mca",
-        "grade" : "A+",
-        "gender" : "male",
-        "contact" : "9875467",
-        "mark" : "90",
-        "location" : "kollam"
-}
-{
-        "_id" : ObjectId("628de70761c93496ce1adfa2"),
-        "fname" : "vismaya",
-        "lname" : "sebastian",
-        "depart" : "mechanical",
-        "grade" : "A",
-        "gender" : "female",
-        "contact" : "9875467",
-        "mark" : "90",
-        "location" : "kottayam"
-}
-{
-        "_id" : ObjectId("628de77761c93496ce1adfa3"),
-        "fname" : "jeri",
-        "lname" : "J",
-        "depart" : "electrical",
-        "grade" : "B",
-        "gender" : "male",
-        "contact" : "99775467",
-        "mark" : "95",
-        "location" : "trivandrum"
-}
-{
-        "_id" : ObjectId("628de7bb61c93496ce1adfa4"),
-        "fname" : "tessy",
-        "lname" : "A",
-        "depart" : "mechanical",
-        "grade" : "A+",
-        "gender" : "female",
-        "contact" : "99778967",
-        "mark" : "83",
-        "location" : "kollam"
-}
-{
-        "_id" : ObjectId("628de83f61c93496ce1adfa5"),
-        "fname" : "tom",
-        "lname" : "A",
-        "depart" : "civil",
-        "grade" : "B+",
-        "gender" : "male",
-        "contact" : "997778967",
-        "mark" : "97",
-        "location" : "ekm"
-}
-{
-        "_id" : ObjectId("628de8c861c93496ce1adfa6"),
-        "fname" : "kevin",
-        "lname" : "m",
-        "depart" : "mca",
-        "grade" : "B+",
-        "gender" : "male",
-        "contact" : "99878967",
-        "mark" : "87",
-        "location" : "ekm"
+
+
 }
 > db.studlist.insert({'fname':'catherine','lname':'m','depart':'mca','grade':'B+','gender':'female','contact':'99878967','mark':'84','location':'ekm'});
 WriteResult({ "nInserted" : 1 })
@@ -189,17 +68,6 @@ uncaught exception: SyntaxError: '' literal not terminated before end of script 
         "location" : "kollam"
 }
 {
-        "_id" : ObjectId("628de70761c93496ce1adfa2"),
-        "fname" : "vismaya",
-        "lname" : "sebastian",
-        "depart" : "mechanical",
-        "grade" : "A",
-        "gender" : "female",
-        "contact" : "9875467",
-        "mark" : "90",
-        "location" : "kottayam"
-}
-{
         "_id" : ObjectId("628de77761c93496ce1adfa3"),
         "fname" : "jeri",
         "lname" : "J",
@@ -209,17 +77,6 @@ uncaught exception: SyntaxError: '' literal not terminated before end of script 
         "contact" : "99775467",
         "mark" : "95",
         "location" : "trivandrum"
-}
-{
-        "_id" : ObjectId("628de7bb61c93496ce1adfa4"),
-        "fname" : "tessy",
-        "lname" : "A",
-        "depart" : "mechanical",
-        "grade" : "A+",
-        "gender" : "female",
-        "contact" : "99778967",
-        "mark" : "83",
-        "location" : "kollam"
 }
 {
         "_id" : ObjectId("628de83f61c93496ce1adfa5"),
@@ -253,6 +110,39 @@ uncaught exception: SyntaxError: '' literal not terminated before end of script 
         "contact" : "99878967",
         "mark" : "84",
         "location" : "ekm"
+}
+{
+        "_id" : ObjectId("628df33e61c93496ce1adfa8"),
+        "fname" : "ancy",
+        "lname" : "c",
+        "depart" : "mechanical",
+        "grade" : "B+",
+        "gender" : "female",
+        "contact" : "99878967",
+        "mark" : "84",
+        "location" : "ekm"
+}
+{
+        "_id" : ObjectId("628df43361c93496ce1adfaa"),
+        "fname" : "vismaya",
+        "lname" : "sebastian",
+        "depart" : "mechanical",
+        "grade" : "A+",
+        "gender" : "female",
+        "contact" : "99878877",
+        "mark" : "90",
+        "location" : "kollam"
+}
+{
+        "_id" : ObjectId("628df46d61c93496ce1adfab"),
+        "fname" : "tessy",
+        "lname" : "a",
+        "depart" : "mechanical",
+        "grade" : "A",
+        "gender" : "female",
+        "contact" : "99876677",
+        "mark" : "85",
+        "location" : "kollam"
 }
 > db.studlist.find({'depart':'mca','gender':'female'},{'fname':1,'lname':1,'mark':1});
 { "_id" : ObjectId("628de96861c93496ce1adfa7"), "fname" : "catherine", "lname" : "m", "mark" : "84" }
