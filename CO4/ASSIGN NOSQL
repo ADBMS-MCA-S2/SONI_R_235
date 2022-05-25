@@ -257,3 +257,5 @@ uncaught exception: SyntaxError: '' literal not terminated before end of script 
 > db.studlist.find({'depart':'mca','gender':'female'},{'fname':1,'lname':1,'mark':1});
 { "_id" : ObjectId("628de96861c93496ce1adfa7"), "fname" : "catherine", "lname" : "m", "mark" : "84" }
 >
+ db.studlist.find({'depart':'mca'},{_id:0}).sort({'mark':-1}).limit(1);
+{ "fname" : "jeff", "lname" : "justin", "depart" : "mca", "grade" : "A+", "gender" : "male", "contact" : "9875467", "mark" : "90", "location" : "kollam" }
