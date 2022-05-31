@@ -1,0 +1,145 @@
+Microsoft Windows [Version 10.0.15063]
+(c) 2017 Microsoft Corporation. All rights reserved.
+
+C:\Program Files\MongoDB\Server\5.0\bin>start mongod -replSet qwerty -logpath \data\rs1\1.log  -dbpath \data\rs1 --port 27018
+
+C:\Program Files\MongoDB\Server\5.0\bin>mongo --port 27018
+MongoDB shell version v5.0.7
+connecting to: mongodb://127.0.0.1:27018/?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("389ea370-12f7-407c-b8ce-5bd44488b297") }
+MongoDB server version: 5.0.7
+================
+Warning: the "mongo" shell has been superseded by "mongosh",
+which delivers improved usability and compatibility.The "mongo" shell has been deprecated and will be removed in
+an upcoming release.
+For installation instructions, see
+https://docs.mongodb.com/mongodb-shell/install/
+================
+---
+The server generated these startup warnings when booting:
+        2022-05-31T12:00:30.130+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+        2022-05-31T12:00:30.130+05:30: This server is bound to localhost. Remote systems will be unable to connect to this server. Start the server with --bind_ip <address> to specify which IP addresses it should serve responses from, or with --bind_ip_all to bind to all interfaces. If this behavior is desired, start the server with --bind_ip 127.0.0.1 to disable this warning
+---
+---
+        Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+        metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+        The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+        and anyone you share the URL with. MongoDB may use this information to make product
+        improvements and to suggest MongoDB products and deployment options to you.
+
+        To enable free monitoring, run the following command: db.enableFreeMonitoring()
+        To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+---
+>  config={_id:"qwerty",members:[{_id:0,host:"localhost:27018"},{_id:1,host:"localhost:27019"},{_id:2,host:"localhost:27020"}]}
+{
+        "_id" : "qwerty",
+        "members" : [
+                {
+                        "_id" : 0,
+                        "host" : "localhost:27018"
+                },
+                {
+                        "_id" : 1,
+                        "host" : "localhost:27019"
+                },
+                {
+                        "_id" : 2,
+                        "host" : "localhost:27020"
+                }
+        ]
+}
+> rs.initiate(config)
+{
+        "ok" : 0,
+        "errmsg" : "replSetInitiate quorum check failed because not all proposed set members responded affirmatively: localhost:27019 failed with Error connecting to localhost:27019 (127.0.0.1:27019) :: caused by :: No connection could be made because the target machine actively refused it., localhost:27020 failed with Error connecting to localhost:27020 (127.0.0.1:27020) :: caused by :: No connection could be made because the target machine actively refused it.",
+        "code" : 74,
+        "codeName" : "NodeNotFound"
+}
+> config={_id:"qwerty",members:[{_id:0,host:"localhost:27018"},{_id:1,host:"localhost:27019"},{_id:2,host:"localhost:27020"}]}
+{
+        "_id" : "qwerty",
+        "members" : [
+                {
+                        "_id" : 0,
+                        "host" : "localhost:27018"
+                },
+                {
+                        "_id" : 1,
+                        "host" : "localhost:27019"
+                },
+                {
+                        "_id" : 2,
+                        "host" : "localhost:27020"
+                }
+        ]
+}
+> use gg
+switched to db gg
+> rs.initiate(config)
+{
+        "ok" : 0,
+        "errmsg" : "replSetInitiate quorum check failed because not all proposed set members responded affirmatively: localhost:27020 failed with Error connecting to localhost:27020 (127.0.0.1:27020) :: caused by :: No connection could be made because the target machine actively refused it.",
+        "code" : 74,
+        "codeName" : "NodeNotFound"
+}
+>
+bye
+
+C:\Program Files\MongoDB\Server\5.0\bin>config={_id:"qwerty",members:[{_id:0,host:"localhost:27018"},{_id:1,host:"localhost:27019"},{_id:2,host:"localhost:27020"}]}
+'config' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Program Files\MongoDB\Server\5.0\bin>mongo --port 27018
+MongoDB shell version v5.0.7
+connecting to: mongodb://127.0.0.1:27018/?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("63d5f47a-521f-400d-9722-081d28bab6f1") }
+MongoDB server version: 5.0.7
+================
+Warning: the "mongo" shell has been superseded by "mongosh",
+which delivers improved usability and compatibility.The "mongo" shell has been deprecated and will be removed in
+an upcoming release.
+For installation instructions, see
+https://docs.mongodb.com/mongodb-shell/install/
+================
+---
+The server generated these startup warnings when booting:
+        2022-05-31T12:00:30.130+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+        2022-05-31T12:00:30.130+05:30: This server is bound to localhost. Remote systems will be unable to connect to this server. Start the server with --bind_ip <address> to specify which IP addresses it should serve responses from, or with --bind_ip_all to bind to all interfaces. If this behavior is desired, start the server with --bind_ip 127.0.0.1 to disable this warning
+---
+---
+        Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+        metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+        The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+        and anyone you share the URL with. MongoDB may use this information to make product
+        improvements and to suggest MongoDB products and deployment options to you.
+
+        To enable free monitoring, run the following command: db.enableFreeMonitoring()
+        To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+---
+> config={_id:"qwerty",members:[{_id:0,host:"localhost:27018"},{_id:1,host:"localhost:27019"},{_id:2,host:"localhost:27020"}]}
+{
+        "_id" : "qwerty",
+        "members" : [
+                {
+                        "_id" : 0,
+                        "host" : "localhost:27018"
+                },
+                {
+                        "_id" : 1,
+                        "host" : "localhost:27019"
+                },
+                {
+                        "_id" : 2,
+                        "host" : "localhost:27020"
+                }
+        ]
+}
+> rs.initiate(config)
+{ "ok" : 1 }
+qwerty:SECONDARY> show databases
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+qwerty:PRIMARY>
