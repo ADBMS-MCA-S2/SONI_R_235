@@ -1,0 +1,45 @@
+"to search a particular string from whole collection"
+
+ db.createCollection("comments")
+{ "ok" : 1 }
+>
+> db.comments.insert({name:"soni",post:"hloo"})
+WriteResult({ "nInserted" : 1 })
+>
+> db.comments.insert({name:"sona",post:"hii"})
+WriteResult({ "nInserted" : 1 })
+> db.comments.insert({name:"cath",post:"what is it"})
+WriteResult({ "nInserted" : 1 })
+>
+ db.comment.createIndex({post:"text"})
+{
+        "numIndexesBefore" : 1,
+        "numIndexesAfter" : 2,
+        "createdCollectionAutomatically" : true,
+        "ok" : 1
+}
+> db.register.getIndexes()
+[
+        {
+                "v" : 2,
+                "key" : {
+                        "_id" : 1
+                },
+                "name" : "_id_"
+        },
+        {
+                "v" : 2,
+                "key" : {
+                        "regno" : 1,
+                        "name" : 1
+                },
+                "name" : "regno_1_name_1"
+        },
+        {
+                "v" : 2,
+                "key" : {
+                        "mark.maths" : 1
+                },
+                "name" : "mark.maths_1"
+        }
+]
