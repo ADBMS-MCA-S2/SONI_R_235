@@ -1,0 +1,8 @@
+db.register.createIndex({regno:1,name:1})
+{
+        "numIndexesBefore" : 1,
+        "numIndexesAfter" : 2,
+        "createdCollectionAutomatically" : false,
+        "ok" : 1
+}
+>
