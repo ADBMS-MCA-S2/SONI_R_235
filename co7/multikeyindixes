@@ -1,1 +1,7 @@
-
+ db.register.createIndex({"mark.maths":1})
+{
+        "numIndexesBefore" : 2,
+        "numIndexesAfter" : 3,
+        "createdCollectionAutomatically" : false,
+        "ok" : 1
+}
