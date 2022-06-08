@@ -43,3 +43,52 @@ WriteResult({ "nInserted" : 1 })
                 "name" : "mark.maths_1"
         }
 ]
+> db.createCollection("comments")
+{ "ok" : 1 }
+> db.comments.insert({name:"jack",post:"ceo"})
+WriteResult({ "nInserted" : 1 })
+> db.comments.insert({name:"rose",post:"hofman"})
+WriteResult({ "nInserted" : 1 })
+> db.comments.insert({name:"riya",post:"manger"})
+WriteResult({ "nInserted" : 1 })
+> db.comments.insert({name:"jerr",post:"hr"})
+WriteResult({ "nInserted" : 1 })
+>  db.comments.createIndex({post:"text"})
+{
+        "numIndexesBefore" : 1,
+        "numIndexesAfter" : 2,
+        "createdCollectionAutomatically" : false,
+        "ok" : 1
+}
+> db.register.getIndexes()
+[ ]
+>
+> db.comments.getIndexes()
+[
+        {
+                "v" : 2,
+                "key" : {
+                        "_id" : 1
+                },
+                "name" : "_id_"
+        },
+        {
+                "v" : 2,
+                "key" : {
+                        "_fts" : "text",
+                        "_ftsx" : 1
+                },
+                "name" : "post_text",
+                "weights" : {
+                        "post" : 1
+                },
+                "default_language" : "english",
+                "language_override" : "language",
+                "textIndexVersion" : 3
+        }
+]
+> db.comments.find({$text:{$search:"\ceo"}})
+{ "_id" : ObjectId("62a07837266f1f2d903d10bb"), "name" : "jack", "post" : "ceo" }
+>  db.comments.find({$text:{$search:"\ceo"}},{_id:0})
+{ "name" : "jack", "post" : "ceo" }
+>
