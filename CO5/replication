@@ -268,10 +268,10 @@ bac:SECONDARY> show dbs
 admin    0.000GB
 config   0.000GB
 local    0.000GB
-raichal  0.000GB
+soni  0.000GB
 bac:SECONDARY> show collections
-bac:SECONDARY> use raichal
-switched to db raichal
+bac:SECONDARY> use soni
+switched to db soni
 bac:SECONDARY> show collections
 student
 bac:SECONDARY> db.student.find()
@@ -328,8 +328,8 @@ admin    0.000GB
 config   0.000GB
 local    0.000GB
 soni  0.000GB
-bac:SECONDARY> use raichal
-switched to db raichal
+bac:SECONDARY> use soni
+switched to db soni
 bac:SECONDARY> show collections
 student
 bac:SECONDARY> db.student.insert({name:"jeff"})
@@ -352,6 +352,6 @@ WriteCommandError({
         "operationTime" : Timestamp(1654010717, 1)
 })
 bac:SECONDARY> db.student.find()
-{ "_id" : ObjectId("629632574f1b5656dc5665f5"), "name" : "Raichal" }
-{ "_id" : ObjectId("62963402b5e24d4d13cb9872"), "name" : "Ria" }
+{ "_id" : ObjectId("629632574f1b5656dc5665f5"), "name" : "soni" }
+{ "_id" : ObjectId("62963402b5e24d4d13cb9872"), "name" : "jeff" }
 bac:SECONDARY>
