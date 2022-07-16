@@ -159,3 +159,6 @@ db.EMPL.find({role:"ob"},{ename:1,_id:0})
 { "ename" : "jeff" }
 { "ename" : "kev" }
 
+DISPLAY SALARY GREATER THAN 30,000 AND LESS THAN 50,000
+{ "_id" : ObjectId("62d2374fb222b20a5cb35cb4"), "empid" : 104, "ename" : "jerr", "salary" : 39000, "role" : "mob" }
+{ "_id" : ObjectId("62d2376db222b20a5cb35cb5"), "empid" : 106, "ename" : "kev", "salary" : 34000, "role" : "ob" }
