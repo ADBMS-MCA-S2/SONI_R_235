@@ -128,3 +128,34 @@ QUESTION:12
 db.EMPL.find({role:{$nin:["ob","mob"]}})
 { "_id" : ObjectId("62d236f2b222b20a5cb35cb1"), "empid" : 101, "ename" : "kavya", "salary" : 14000, "role" : "c and wk" }
 { "_id" : ObjectId("62d2371eb222b20a5cb35cb2"), "empid" : 102, "ename" : "sneha", "salary" : 62000, "role" : "rd" }
+DISPLAY ALL ROLES
+db.EMPL.find({},{role:1})
+{ "_id" : ObjectId("62d236f2b222b20a5cb35cb1"), "role" : "c and wk" }
+{ "_id" : ObjectId("62d2371eb222b20a5cb35cb2"), "role" : "rd" }
+{ "_id" : ObjectId("62d23736b222b20a5cb35cb3"), "role" : "ob" }
+{ "_id" : ObjectId("62d2374fb222b20a5cb35cb4"), "role" : "mob" }
+{ "_id" : ObjectId("62d2376db222b20a5cb35cb5"), "role" : "ob" }
+{ "_id" : ObjectId("62d2379db222b20a5cb35cb6"), "role" : "mob" }
+{ "_id" : ObjectId("62d23a6ab222b20a5cb35cb7"), "role" : "mob" }
+{ "_id" : ObjectId("62d23bc9b222b20a5cb35cb8"), "role" : "mob" }
+DISPLAY ROLE OF EMPLO SNEHA
+
+> db.EMPL.find({ename:"sneha"},{role:1})
+{ "_id" : ObjectId("62d2371eb222b20a5cb35cb2"), "role" : "rd" }
+DISPLAY THE COUNT OF EMPLO IN ROLE MOB
+ db.EMPL.find({role:"mob"}).count()
+4
+USING DISTICT
+db.EMPL.distinct("role")
+[ "c and wk", "mob", "ob", "rd" ]
+SALARY GREATER THAN 10,000 AND LESS THAN 30,000
+db.EMPL.find({salary:{$gt:10000,$lt:30000}},{_id:0})
+{ "empid" : 101, "ename" : "kavya", "salary" : 14000, "role" : "c and wk" }
+{ "empid" : 103, "ename" : "jeff", "salary" : 29000, "role" : "ob" }
+{ "empid" : 105, "ename" : "cath", "salary" : 19000, "role" : "mob" }
+>
+DISPLAY THE EMPLO ROLE IS OB
+db.EMPL.find({role:"ob"},{ename:1,_id:0})
+{ "ename" : "jeff" }
+{ "ename" : "kev" }
+
