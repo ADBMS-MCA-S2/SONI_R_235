@@ -1,0 +1,130 @@
+QUESTION:1
+use EMP
+switched to db EMP
+> db.createCollection("EMPL")
+{ "ok" : 1 }
+> db.EMPL.insert({empid:'105',ename:'cath',salary:'15000',role:'mob'})
+WriteResult({ "nInserted" : 1 })
+> db.EMPL.insert({empid:'106',ename:'kev',salary:'30000',role:'ob'})
+WriteResult({ "nInserted" : 1 })
+> db.EMPL.insert({empid:'104',ename:'jerr',salary:'35000',role:'mob'})
+WriteResult({ "nInserted" : 1 })
+> db.EMPL.insert({empid:'103',ename:'jeff',salary:'25000',role:'ob'})
+WriteResult({ "nInserted" : 1 })
+> db.EMPL.insert({empid:'102',ename:'sneha',salary:'20000',role:'rd'})
+WriteResult({ "nInserted" : 1 })
+> db.EMPL.insert({empid:'101',ename:'kavya',salary:'10000',role:'msd'})
+WriteResult({ "nInserted" : 1 })
+> db.EMPL.find({},{_id:0}).pretty()
+{ "empid" : "105", "ename" : "cath", "salary" : "15000", "role" : "mob" }
+{ "empid" : "106", "ename" : "kev", "salary" : "30000", "role" : "ob" }
+{ "empid" : "104", "ename" : "jerr", "salary" : "35000", "role" : "mob" }
+{ "empid" : "103", "ename" : "jeff", "salary" : "25000", "role" : "ob" }
+{ "empid" : "102", "ename" : "sneha", "salary" : "20000", "role" : "rd" }
+{ "empid" : "101", "ename" : "kavya", "salary" : "10000", "role" : "msd" }
+QUESTION:2
+db.EMPL.updateOne({ename:'sneha'},{$inc:{salary:5000}})
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+> db.EMPL.find({},{_id:0}).pretty()
+{ "empid" : 101, "ename" : "kavya", "salary" : 10000, "role" : "msd" }
+{ "empid" : 102, "ename" : "sneha", "salary" : 25000, "role" : "rd" }
+{ "empid" : 103, "ename" : "jeff", "salary" : 25000, "role" : "ob" }
+{ "empid" : 104, "ename" : "jerr", "salary" : 35000, "role" : "mob" }
+{ "empid" : 106, "ename" : "kev", "salary" : 30000, "role" : "ob" }
+{ "empid" : 105, "ename" : "cath", "salary" : 15000, "role" : "mob" }
+QUESTION:3
+ db.EMPL.updateMany({},{$inc:{salary:4000}})
+{ "acknowledged" : true, "matchedCount" : 6, "modifiedCount" : 6 }
+db.EMPL.find({},{_id:0}).pretty()
+{ "empid" : 101, "ename" : "kavya", "salary" : 14000, "role" : "msd" }
+{ "empid" : 102, "ename" : "sneha", "salary" : 29000, "role" : "rd" }
+{ "empid" : 103, "ename" : "jeff", "salary" : 29000, "role" : "ob" }
+{ "empid" : 104, "ename" : "jerr", "salary" : 39000, "role" : "mob" }
+{ "empid" : 106, "ename" : "kev", "salary" : 34000, "role" : "ob" }
+{ "empid" : 105, "ename" : "cath", "salary" : 19000, "role" : "mob" }
+QUESTION:4
+ db.EMPL.updateMany({role:"msd"},{$set:{role:"c and wk"}})
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+> db.EMPL.find({},{_id:0}).pretty()
+{ "empid" : 101, "ename" : "kavya", "salary" : 14000, "role" : "c and wk" }
+{ "empid" : 102, "ename" : "sneha", "salary" : 29000, "role" : "rd" }
+{ "empid" : 103, "ename" : "jeff", "salary" : 29000, "role" : "ob" }
+{ "empid" : 104, "ename" : "jerr", "salary" : 39000, "role" : "mob" }
+{ "empid" : 106, "ename" : "kev", "salary" : 34000, "role" : "ob" }
+{ "empid" : 105, "ename" : "cath", "salary" : 19000, "role" : "mob" }
+QUESTION:5
+db.EMPL.updateMany({ename:"remya"},{$push:{remark:"wc"}})
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+> db.EMPL.find({},{_id:0}).pretty()
+{ "empid" : 101, "ename" : "kavya", "salary" : 14000, "role" : "c and wk" }
+{ "empid" : 102, "ename" : "sneha", "salary" : 29000, "role" : "rd" }
+{ "empid" : 103, "ename" : "jeff", "salary" : 29000, "role" : "ob" }
+{ "empid" : 104, "ename" : "jerr", "salary" : 39000, "role" : "mob" }
+{ "empid" : 106, "ename" : "kev", "salary" : 34000, "role" : "ob" }
+{ "empid" : 105, "ename" : "cath", "salary" : 19000, "role" : "mob" }
+{
+        "empid" : 106,
+        "ename" : "remya",
+        "salary" : 55000,
+        "role" : "mob",
+        "remark" : [
+                "wc"
+        ]
+}
+QUESTION:6
+db.EMPL.updateMany({role:"rd"},{$mul:{salary:2}})
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+> db.EMPL.find({},{_id:0}).pretty()
+{ "empid" : 101, "ename" : "kavya", "salary" : 14000, "role" : "c and wk" }
+{ "empid" : 102, "ename" : "sneha", "salary" : 62000, "role" : "rd" }
+{ "empid" : 103, "ename" : "jeff", "salary" : 29000, "role" : "ob" }
+{ "empid" : 104, "ename" : "jerr", "salary" : 39000, "role" : "mob" }
+{ "empid" : 106, "ename" : "kev", "salary" : 34000, "role" : "ob" }
+{ "empid" : 105, "ename" : "cath", "salary" : 19000, "role" : "mob" }
+{
+        "empid" : 106,
+        "ename" : "remya",
+        "salary" : 55000,
+        "role" : "mob",
+        "remark" : [
+                "wc"
+        ]
+}
+QUESTION:7
+db.EMPL.find({"ename":{$regex:"^s"}})
+{ "_id" : ObjectId("62d2371eb222b20a5cb35cb2"), "empid" : 102, "ename" : "sneha", "salary" : 62000, "role" : "rd" }
+QUESTION:8
+db.EMPL.find({"ename":{$regex:"k$"}},{_id:0}).pretty()
+{ "empid" : 107, "ename" : "karthik", "salary" : 55000, "role" : "mob" }
+QUESTION:9
+db.EMPL.find({"ename":{$regex:"e"}},{_id:0}).pretty()
+{ "empid" : 102, "ename" : "sneha", "salary" : 62000, "role" : "rd" }
+{ "empid" : 103, "ename" : "jeff", "salary" : 29000, "role" : "ob" }
+{ "empid" : 104, "ename" : "jerr", "salary" : 39000, "role" : "mob" }
+{ "empid" : 106, "ename" : "kev", "salary" : 34000, "role" : "ob" }
+{
+        "empid" : 106,
+        "ename" : "remya",
+        "salary" : 55000,
+        "role" : "mob",
+        "remark" : [
+                "wc"
+        ]
+}
+QUESTION:10
+ db.EMPL.find({},{_id:0}).sort({salary:-1}).limit(1)
+{ "empid" : 102, "ename" : "sneha", "salary" : 62000, "role" : "rd" }
+db.EMPL.find({},{_id:0}).sort({salary:1}).limit(1)
+{ "empid" : 101, "ename" : "kavya", "salary" : 14000, "role" : "c and wk" }
+QUESTION:11
+db.EMPL.find({role:{$in:["ob","mob"]}})
+{ "_id" : ObjectId("62d23736b222b20a5cb35cb3"), "empid" : 103, "ename" : "jeff", "salary" : 29000, "role" : "ob" }
+{ "_id" : ObjectId("62d2374fb222b20a5cb35cb4"), "empid" : 104, "ename" : "jerr", "salary" : 39000, "role" : "mob" }
+{ "_id" : ObjectId("62d2376db222b20a5cb35cb5"), "empid" : 106, "ename" : "kev", "salary" : 34000, "role" : "ob" }
+{ "_id" : ObjectId("62d2379db222b20a5cb35cb6"), "empid" : 105, "ename" : "cath", "salary" : 19000, "role" : "mob" }
+{ "_id" : ObjectId("62d23a6ab222b20a5cb35cb7"), "empid" : 106, "ename" : "remya", "salary" : 55000, "role" : "mob", "remark" : [ "wc" ] }
+{ "_id" : ObjectId("62d23bc9b222b20a5cb35cb8"), "empid" : 107, "ename" : "karthik", "salary" : 55000, "role" : "mob" }
+QUESTION:12
+db.EMPL.find({role:{$nin:["ob","mob"]}})
+{ "_id" : ObjectId("62d236f2b222b20a5cb35cb1"), "empid" : 101, "ename" : "kavya", "salary" : 14000, "role" : "c and wk" }
+{ "_id" : ObjectId("62d2371eb222b20a5cb35cb2"), "empid" : 102, "ename" : "sneha", "salary" : 62000, "role" : "rd" }
