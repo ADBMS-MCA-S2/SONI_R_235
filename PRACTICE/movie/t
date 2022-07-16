@@ -1,0 +1,3 @@
+DISPALY SYNOPSIS WITH WORD BILBO
+db.movie.find({synopsis:{$regex:'bilbo'}})
+{ "_id" : ObjectId("62d2659825175e787399cfbe"), "title" : "the hobbit:the battle of the five armies", "writer" : "j.r.r.tolkein", "year" : 2012, "franchise" : "the hobbit", "synopsis" : "bilbo and company are forced to engage in a war against an array of combatants and keep the lonely mountain from falling into the hands of a rising darkness" }
