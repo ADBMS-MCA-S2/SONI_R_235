@@ -83,10 +83,11 @@ WriteResult({ "nInserted" : 1 })
 > db.student.count({vaccination_status:"notvaccinated"})
 1
 ******QUESTION:4******
-> db.student.find({department:"mca"},{name:1,phone:1}).sort({"lab_mark.external":-1})
-{ "_id" : 5, "name" : "vivek", "phone" : 8582639777 }
-{ "_id" : 1, "name" : "anjali", "phone" : 8582639562 }
-{ "_id" : 3, "name" : "bismiya", "phone" : 9446639562 }
+> db.student.find({department:"mca"},{name:1,phone:1,_id:0}).sort({"lab_mark.external":-1})
+{ "name" : "vivek", "phone" : 8582639777 }
+{ "name" : "anjali", "phone" : 8582639562 }
+{ "name" : "bismiya", "phone" : 9446639562 }
+>
 *******QUESTION:5*****
 > db.student.updateOne({_id:4},{$set:{vaccination_status:"bothvaccinated"}})
 { "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
