@@ -1,0 +1,107 @@
+*****QUESTION:1*****
+use exam
+switched to db exam
+> db.createCollection("student")
+{ "ok" : 1 }
+> db.student.insert({_id:1,name:"anjali",place:"kollam",phone:8582639562,vaccination_status:"bothvaccinated",rtpcr:"negative",lab_mark:{internal:30,external:45},department:"mca"})
+WriteResult({ "nInserted" : 1 })
+> db.student.insert({_id:2,name:"anuradha",place:"varkala",phone:9992639562,vaccination_status:"bothvaccinated",rtpcr:"negative",lab_mark:{internal:40,external:48},department:"civil"})
+WriteResult({ "nInserted" : 1 })
+> db.student.insert({_id:3,name:"bismiya",place:"kollam",phone:9446639562,vaccination_status:"notvaccinated",rtpcr:"positive",lab_mark:{internal:50,external:39},department:"mca"})
+WriteResult({ "nInserted" : 1 })
+> db.student.insert({_id:4,name:"vimal",place:"ernakulam",phone:8582639568,vaccination_status:"firstdoseonly",rtpcr:"positive",lab_mark:{internal:40,external:42},department:"civil"})
+WriteResult({ "nInserted" : 1 })
+> db.student.insert({_id:5,name:"vivek",place:"kollam",phone:8582639777,vaccination_status:"bothvaccinated",rtpcr:"negative",lab_mark:{internal:50,external:50},department:"mca"})
+WriteResult({ "nInserted" : 1 })
+*****QUESTION 2******
+> db.student.find().pretty()
+{
+        "_id" : 1,
+        "name" : "anjali",
+        "place" : "kollam",
+        "phone" : 8582639562,
+        "vaccination_status" : "bothvaccinated",
+        "rtpcr" : "negative",
+        "lab_mark" : {
+                "internal" : 30,
+                "external" : 45
+        },
+        "department" : "mca"
+}
+{
+        "_id" : 2,
+        "name" : "anuradha",
+        "place" : "varkala",
+        "phone" : 9992639562,
+        "vaccination_status" : "bothvaccinated",
+        "rtpcr" : "negative",
+        "lab_mark" : {
+                "internal" : 40,
+                "external" : 48
+        },
+        "department" : "civil"
+}
+{
+        "_id" : 3,
+        "name" : "bismiya",
+        "place" : "kollam",
+        "phone" : 9446639562,
+        "vaccination_status" : "notvaccinated",
+        "rtpcr" : "positive",
+        "lab_mark" : {
+                "internal" : 50,
+                "external" : 39
+        },
+        "department" : "mca"
+}
+{
+        "_id" : 4,
+        "name" : "vimal",
+        "place" : "ernakulam",
+        "phone" : 8582639568,
+        "vaccination_status" : "firstdoseonly",
+        "rtpcr" : "positive",
+        "lab_mark" : {
+                "internal" : 40,
+                "external" : 42
+        },
+        "department" : "civil"
+}
+{
+        "_id" : 5,
+        "name" : "vivek",
+        "place" : "kollam",
+        "phone" : 8582639777,
+        "vaccination_status" : "bothvaccinated",
+        "rtpcr" : "negative",
+        "lab_mark" : {
+                "internal" : 50,
+                "external" : 50
+        },
+        "department" : "mca"
+******QUESTION:3******
+> db.student.count({vaccination_status:"notvaccinated"})
+1
+******QUESTION:4******
+> db.student.find({department:"mca"},{name:1,phone:1}).sort({"lab_mark.external":-1})
+{ "_id" : 5, "name" : "vivek", "phone" : 8582639777 }
+{ "_id" : 1, "name" : "anjali", "phone" : 8582639562 }
+{ "_id" : 3, "name" : "bismiya", "phone" : 9446639562 }
+*******QUESTION:5*****
+> db.student.updateOne({_id:4},{$set:{vaccination_status:"bothvaccinated"}})
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+> db.student.find({_id:4}).pretty()
+{
+        "_id" : 4,
+        "name" : "vimal",
+        "place" : "ernakulam",
+        "phone" : 8582639568,
+        "vaccination_status" : "bothvaccinated",
+        "rtpcr" : "positive",
+        "lab_mark" : {
+                "internal" : 40,
+                "external" : 42
+        },
+        "department" : "civil"
+}
+>
